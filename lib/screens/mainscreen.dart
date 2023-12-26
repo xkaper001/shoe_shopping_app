@@ -15,6 +15,7 @@ class MainScreen extends StatefulWidget {
 
 class MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+  final PageController _pageController = PageController();
 
   final List<Widget> _screens = [
     const HomeScreen(),
@@ -28,6 +29,7 @@ class MainScreenState extends State<MainScreen> {
     return SafeArea(
       child: Scaffold(
           body: PageView(
+            controller: _pageController,
             children: _screens,
             onPageChanged: (index) {
               setState(() {
@@ -58,12 +60,16 @@ class MainScreenState extends State<MainScreen> {
                 icon: Icons.notifications,
                 text: 'Notifications',
               ),
-              GButton(icon: Icons.person, text: 'Profile',)
+              GButton(
+                icon: Icons.person,
+                text: 'Profile',
+              )
             ],
             onTabChange: (index) {
               setState(() {
                 _currentIndex = index;
               });
+              _pageController.jumpToPage(index);
             },
           )),
     );

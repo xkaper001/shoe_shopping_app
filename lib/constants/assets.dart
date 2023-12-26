@@ -8,4 +8,6 @@ class AppAssets {
   static const String nikeDunkLow = 'assets/collection/image_4.png';
   static const String nikeAirMax = 'assets/collection/image_6.png';
   static const String adidasUltimashow = 'assets/collection/ultimashow.png';
+
+  static const String heroBG = 'assets/heroBG.png';
 }
